@@ -36,6 +36,7 @@
   (util/prod-build  (app-cfg true))
   
 (util/stop-server)
+  (util/clean-build)
   (util/npm-i {})
   ; start up live-compilation of tests
   (test-watch)

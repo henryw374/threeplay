@@ -1,5 +1,6 @@
 (ns threeplay.view
   (:require [threeplay.play.play1 :as play1]
+            [threeplay.play.play2-no-react]
             [uix.core :as uix :refer [defui $]]
             [uix.hooks.alpha :as hooks]
             [reitit.frontend :as rf]

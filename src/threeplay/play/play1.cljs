@@ -7,9 +7,10 @@
   (let [mesh-ref (uix/use-ref)
         [hovered set-hover] (uix/use-state false)
         [active set-active] (uix/use-state false)]
-    (useFrame (fn [_state delta]
+    (useFrame (fn [_state clock-delta]
                 (let [curr (.. mesh-ref -current -rotation -x)]
-                  (set! (.. mesh-ref -current -rotation -x) (+ delta curr)))))
+                  ;(js/console.log "delta" clock-delta)
+                  (set! (.. mesh-ref -current -rotation -x) (+ clock-delta curr)))))
     ($ :mesh
       (assoc props
         :ref mesh-ref
@@ -24,8 +25,8 @@
 
 (defui view [_props]
   ($ Canvas 
-    ($ :ambientLight {:intensity js/Math.PI})
-    ($ :spotLight {:position #js[10 10 10]
+    ($ :ambientLight {:intensity 1})
+    ($ :spotLight {:position #js[50 10 10]
                    :angle 0.15 
                    :penumbra 1
                    :decay 0
@@ -33,5 +34,5 @@
     ($ :pointLight {:position #js[-10 -10 -10]
                     :decay 0
                     :intensity js/Math.PI})
-    ($ Box {:position #js[-1.2 0 0]})
+    ;($ Box {:position #js[-1.2 0 0]})
     ($ Box {:position #js[1.2 0 0]})))
