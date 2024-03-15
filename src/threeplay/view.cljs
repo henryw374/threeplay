@@ -7,7 +7,7 @@
 
 (defui home-page [_props]
   ($ :div
-    ($ :a {:href (rfe/href ::play1)} "Play")))
+    ($ :a {:href (rfe/href ::play1)} "Play - Box")))
 
 
 (def routes
