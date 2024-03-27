@@ -1,6 +1,7 @@
 (ns threeplay.play.play2-no-react
-  (:require ["three" :as three :refer [Scene PerspectiveCamera WebGLRenderer BoxGeometry MeshBasicMaterial Mesh MeshStandardMaterial]]
-            ["@react-three/fiber" :as f]))
+  (:require ;["three" :as three :refer [Scene PerspectiveCamera WebGLRenderer BoxGeometry MeshBasicMaterial Mesh MeshStandardMaterial]]
+    ;["@react-three/fiber" :as f]
+            ))
 
 (comment
   (do

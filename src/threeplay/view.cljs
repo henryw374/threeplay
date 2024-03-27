@@ -1,5 +1,5 @@
 (ns threeplay.view
-  (:require [threeplay.play.play1 :as play1]
+  (:require ;[threeplay.play.play1 :as play1]
             [threeplay.play.play2-no-react]
             [uix.core :as uix :refer [defui $]]
             [uix.hooks.alpha :as hooks]
@@ -24,11 +24,13 @@
                         (set! (.-cb route-cb) set-val))
       [route-cb])
     ($ :div
+      ($ :span {} "hellos")
       (if match-val
         (let [view (:name (:data match-val))]
           (case view
             ::frontpage ($ home-page {:match match-val})
-            ::play1 ($ play1/view)))
+            ;::play1 ($ play1/view)
+            ))
         ($ home-page)))))
 
 (defn start-router [^js cb-holder] ;

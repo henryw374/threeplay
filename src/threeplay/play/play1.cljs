@@ -24,15 +24,16 @@
         {:color (if hovered "hotpink" "orange")}))))
 
 (defui view [_props]
-  ($ Canvas 
-    ($ :ambientLight {:intensity 1})
-    ($ :spotLight {:position #js[50 10 10]
-                   :angle 0.15 
-                   :penumbra 1
-                   :decay 0
-                   :intensity js/Math.PI})
-    ($ :pointLight {:position #js[-10 -10 -10]
-                    :decay 0
-                    :intensity js/Math.PI})
-    ;($ Box {:position #js[-1.2 0 0]})
-    ($ Box {:position #js[1.2 0 0]})))
+  ($ :div
+    ($ Canvas
+      ($ :ambientLight {:intensity 1})
+      ($ :spotLight {:position  #js[50 10 10]
+                     :angle     0.15
+                     :penumbra  1
+                     :decay     0
+                     :intensity js/Math.PI})
+      ($ :pointLight {:position  #js[-10 -10 -10]
+                      :decay     0
+                      :intensity js/Math.PI})
+      ;($ Box {:position #js[-1.2 0 0]})
+      ($ Box {:position #js[1.2 0 0]}))))

@@ -12,20 +12,24 @@
     Hello world!
 </div>
 <script type="importmap">
+
 {
   "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-refresh/runtime": "https://esm.sh/react-refresh@0.14.0",
-    "@tanstack/react-router": "https://esm.sh/@tanstack/react-router",
-     "three": "https://unpkg.com/three@0.162.0/build/three.module.js",    
-     "@react-three/fiber":"https://esm.sh/@react-three/fiber", 
+    "react": "https://esm.sh/react@18.2.0?dev",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client.js?dev",
+    "react-refresh/runtime": "https://esm.sh/react-refresh@0.14.0?dev",    
      "threeplay": "/threeplay/cljs-out/main.js"
      
   }
 }
 </script>
+<!--
+"react-dom/client": "https://esm.sh/v128/react-dom@18.2.0/es2021/client.js",
+"three": "https://unpkg.com/three@0.162.0/build/three.module.js",    
+     "@react-three/fiber":"https://esm.sh/@react-three/fiber@8.16.0",
+"@tanstack/react-router": "https://esm.sh/@tanstack/react-router",
+, 
+-->
 <script  type="module">
     import x from "threeplay";
     x();
