@@ -8,6 +8,4 @@ firebase/public/compiled
 **/build-report.html
 browser-test
 .nrepl-port
-package.json
-package-lock.json
 *.iml
