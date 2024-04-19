@@ -27,26 +27,21 @@
   (uix.core/create-context nil))
 
 (defn ^:export  init []
-  (js/console.log "Initializing")
-  (let [initial-match (atom nil)
-        route-cb #js{:cb (fn [match]
-                           (reset! initial-match match))}]
-    (view/start-router route-cb)
-    (mount-components {:route-cb      route-cb
-                            :initial-match @initial-match})))
+  (js/console.log "Initializing ")
+  (mount-components {}))
 
-(comment
-  (def root (js/ReactDOM.createRoot (app-container "app")))
-  (.render root (.createElement js/React "div" nil "bye now"))
-  )
 
 (.addEventListener
   js/window
   "load"
   (fn []
-    (js/console.log "bello")
+    (js/console.log "loading...")
     (init)))
 
 
+(comment
+  (def root (js/ReactDOM.createRoot (app-container "app")))
+  (.render root (.createElement js/React "div" nil "bye now"))
+  )
 
 
