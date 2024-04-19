@@ -10,9 +10,6 @@
   (.clear js/console)
   (js/console.log "refreshed")
    (uix.dev/refresh!)
-  ;(re-frame.core/clear-subscription-cache!)
-  ;(rdom/unmount-component-at-node (app-container "app"))
-  ;(mount-components)
   )
 
 (comment 

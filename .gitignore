@@ -1,7 +1,6 @@
 .cpcache
 .idea
 .clj-kondo
-firebase/public/compiled
 **/.shadow-cljs
 **/node_modules
 **/web-target/public/*
