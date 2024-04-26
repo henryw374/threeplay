@@ -8,16 +8,16 @@
             [reitit.frontend :as rf]
             [reitit.frontend.easy :as rfe]))
 
-(defui home-page [_props]
-  ($ :div
-    ($ :a {:href (rfe/href ::play1)} "Play - Box")))
-
 (def routes
   (rf/router
     ["/"
      ["" {:name ::frontpage}]
      ["play" {:name ::play1}]]
     ))
+
+(defui home-page [_props]
+  ($ :div
+    ($ :a {:href "#/play"} "Play - Box")))
 
 (defn start-router [^js cb-holder] ;
   (rfe/start!
