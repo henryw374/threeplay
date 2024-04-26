@@ -35,5 +35,5 @@
       ($ :pointLight {:position  #js[-10 -10 -10]
                       :decay     0
                       :intensity js/Math.PI})
-      ;($ Box {:position #js[-1.2 0 0]})
-      ($ Box {:position #js[1.2 0 0]}))))
+      ; where is the box in the screen. x y z
+      ($ Box {:position #js[1.2 0 2]}))))

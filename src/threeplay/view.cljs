@@ -23,10 +23,7 @@
   (rfe/start!
     routes
     (fn [new-match]
-      (cb-holder new-match)
-      #_(swap! match (fn [old-match]
-                       (if new-match
-                         (assoc new-match :controllers (rfc/apply-controllers (:controllers old-match) new-match))))))
+      (cb-holder new-match))
     {:use-fragment true})
   (fn stop []
     ;according to reitit docs doesnt need to do anything
