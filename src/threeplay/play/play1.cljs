@@ -9,16 +9,15 @@
   (let [mesh-ref (uix/use-ref)
         [hovered set-hover] (uix/use-state false)
         [active set-active] (uix/use-state false)
-        pos (atom 0)]
+        [pos set-pos] (uix/use-state false)]
     (useFrame (fn [_state _clock-delta]
-                (let [rad (swap! pos (fn speed [x]
-                                           (mod
-                                             (+ x (/ (* 2 js/Math.PI) 250))
-                                             (* 2 js/Math.PI))))
-                      deg (* rad (/ 180 js/Math.PI))]
-                  (set! (.. mesh-ref -current -position -y) (js/Math.sin rad))
-                  (set! (.. mesh-ref -current -position -x) (js/Math.cos rad))
-                  ;(set! (.. mesh-ref -current -position -z) m)
+                (set-pos
+                  (mod
+                    (+ pos (/ (* 2 js/Math.PI) 250))
+                    (* 2 js/Math.PI)))
+                (let [deg (* pos (/ 180 js/Math.PI))]
+                  (set! (.. mesh-ref -current -position -y) (js/Math.sin pos))
+                  (set! (.. mesh-ref -current -position -x) (js/Math.cos pos))
                   (set! (.. mesh-ref -current -rotation -z)
                     ;why is degree needing scaling down?
                     (/ deg 100)))))
