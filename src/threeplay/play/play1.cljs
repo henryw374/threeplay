@@ -3,7 +3,7 @@
   (:require [uix.core :as uix :refer [defui $]]
             ["@react-three/fiber" :refer [Canvas useFrame]]))
 
-(def redraw-freq 30)
+(def fps 60)
 
 (defui Box [props]
   (let [mesh-ref (uix/use-ref)
@@ -13,14 +13,11 @@
     (useFrame (fn [_state _clock-delta]
                 (set-pos
                   (mod
-                    (+ pos (/ (* 2 js/Math.PI) 250))
+                    (+ pos (/ (* 2 js/Math.PI) (* fps 10)))
                     (* 2 js/Math.PI)))
-                (let [deg (* pos (/ 180 js/Math.PI))]
-                  (set! (.. mesh-ref -current -position -y) (js/Math.sin pos))
-                  (set! (.. mesh-ref -current -position -x) (js/Math.cos pos))
-                  (set! (.. mesh-ref -current -rotation -z)
-                    ;why is degree needing scaling down?
-                    (/ deg 100)))))
+                (set! (.. mesh-ref -current -position -y) (js/Math.sin pos))
+                (set! (.. mesh-ref -current -position -x) (js/Math.cos pos))
+                (set! (.. mesh-ref -current -rotation -z) (* pos (/ 180 js/Math.PI 100)))))
     ($ :mesh
       (assoc props
         :ref mesh-ref
@@ -47,21 +44,7 @@
       ($ :pointLight {:position  #js[-10 -10 -10]
                       :decay     0
                       :intensity js/Math.PI})
-      ; where is the box in the screen. x y z
       ($ Box {:position #js[1 0 2]
               :rotation #js[0 1 0]})
       ;($ Box {:position #js[2.2 0 2]})
       )))
-
-
-(comment
-
-  (js/Math.cos 1)
-  (js/Math.cos 0)
-  
-  (->> (range 10)
-       (map #(vector % (js/Math.cos %))))
-
-
-
-  )
