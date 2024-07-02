@@ -10,7 +10,7 @@
         [hovered set-hover] (uix/use-state false)
         [active set-active] (uix/use-state false)
         [pos set-pos] (uix/use-state false)]
-    (useFrame (fn [_state _clock-delta]
+    #_(useFrame (fn set-box-position [_state _clock-delta]
                 (set-pos
                   (mod
                     (+ pos (/ (* 2 js/Math.PI) (* fps 10)))
